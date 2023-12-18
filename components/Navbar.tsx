@@ -8,10 +8,12 @@ import AccountMenu from './AccountMenu';
 const TOP_OFFSET = 66;
 
 const Navbar = () => {
+    // State hooks to manage visibility
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [showAccountMenu, setShowAccountMenu] = useState(false);
     const [showBackground, setShowBackground] = useState(false);
 
+    // useEffect hook to add an event listender for scroll event, then changes the colour with showBackground
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY >= TOP_OFFSET) {
@@ -28,6 +30,7 @@ const Navbar = () => {
         }
     }, []);
 
+    // useCallback hook to create memoised versions for different menus which then toggles the state depending
     const toggleMobileMenu = useCallback(() => {
         setShowMobileMenu((current) => !current);
     }, []);

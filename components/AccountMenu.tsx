@@ -1,14 +1,18 @@
+// Import dependencies
 import { Account } from '@prisma/client';
-import { signOut } from 'next-auth/react';
+import { signOut } from 'next-auth/react'; // Function to sign out of client
 import React from 'react';
 
+// Interface definition with AccountMenuProps with optional prop type of boolean
 interface AccountMenuProps {
     visible?: boolean;
 }
 
+// Takes in visible prop
 const AccountMenu: React.FC<AccountMenuProps> = ({
     visible
 }) => { 
+    // Conditional rendering, if prop is false then component won't be rendered    
     if (!visible) {
         return null;
     }
