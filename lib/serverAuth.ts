@@ -5,7 +5,7 @@ import prismadb from '@/lib/prismadb';
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 const serverAuth = async (req: NextApiRequest, res: NextApiResponse) => {
-    const session = await getServerSession(req, res, authOptions); // This is to retriever the user session from req and res objects. 
+    const session = await getServerSession(req, res, authOptions); // This is to retrieve the user session from req and res objects. 
 
         // If user isn't in a session, throws error stating user isn't signed in
         if (!session?.user?.email) {
@@ -14,7 +14,7 @@ const serverAuth = async (req: NextApiRequest, res: NextApiResponse) => {
         }
 
 
-        // Retriever user from DB
+        // Retrieve user from DB
         const currentUser = await prismadb.user.findUnique({
             where: {
                 email: session.user.email,
